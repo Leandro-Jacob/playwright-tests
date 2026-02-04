@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { login } from '../../helpers/login';
 
-test('FIFO sem estoque exibe popup e remove item do carrinho', async ({ page }) => {
+test('Fifo out of stock remove item', async ({ page }) => {
   test.setTimeout(90000);
 
   await login(page);

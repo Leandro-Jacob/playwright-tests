@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { login } from '../../helpers/login';
 import { adicionarProdutoHome, abrirCarrinhoTopo } from '../../helpers/home';
 
-test('Adicionar produto da home ao carrinho', async ({ page }) => {
+test('Add product home', async ({ page }) => {
   test.setTimeout(60000);
 
   // 1) Login

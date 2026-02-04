@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { login } from '../../helpers/login';
 import { abrirCarrinhoTopo } from '../../helpers/home';
 
-test('cupom inválido mostra mensagem de erro', async ({ page }) => {
+test('Invalid coupon', async ({ page }) => {
   test.setTimeout(60000);
 
   await login(page);

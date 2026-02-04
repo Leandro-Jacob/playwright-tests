@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { login } from '../../helpers/login';
 
-test('Login com sucesso', async ({ page }) => {
+test('Successful login', async ({ page }) => {
   await login(page);
 
   // ✅ Se aparecer esse texto, login falhou

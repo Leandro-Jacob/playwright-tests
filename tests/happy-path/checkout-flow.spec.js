@@ -4,7 +4,7 @@ import { adicionarProdutoHome, abrirCarrinhoTopo } from '../../helpers/home';
 
 test.use({ screenshot: 'only-on-failure', video: 'retain-on-failure' });
 
-test('checkout BOLETO + valida seção/popup', async ({ page }) => {
+test('Checkout flow', async ({ page }) => {
   test.setTimeout(180000);
 
   const fecharConfirmacaoSeAparecer = async () => {

@@ -3,7 +3,7 @@ import { login } from '../../helpers/login';
 import { abrirCarrinhoTopo } from '../../helpers/home';
 import { removerPrimeiroItemCarrinho } from '../../helpers/carrinho';
 
-test('Carrinho: remover um produto', async ({ page }) => {
+test('Remove item from cart', async ({ page }) => {
   test.setTimeout(60000);
 
   await login(page);
