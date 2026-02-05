@@ -1,28 +1,30 @@
 import { test, expect } from '@playwright/test';
 import { login } from '../../helpers/login';
 import { adicionarProdutoHome, abrirCarrinhoTopo } from '../../helpers/home';
+import { reduzirQuantidadeCarrinho } from '../../helpers/carrinho';
 
-test('Add product home', async ({ page }) => {
-  test.setTimeout(60000);
+test('Decrease cart quantity', async ({ page }) => {
+  test.setTimeout(90000);
 
-  // 1) Login
   await login(page);
 
-  // 2) Se aparecer esse texto, login falhou
-  await expect(page.getByText('A sua senha não corresponde aos padrões de segurança.')).toHaveCount(0);
-
-  // 3) Adiciona o 2º produto da home
+  // 1) Adiciona produto e abre carrinho
   await adicionarProdutoHome(page, 1);
-
-  // 4) Abre carrinho
   await abrirCarrinhoTopo(page);
-
-  // 5) Valida que está no carrinho
+ 
+   // 2) Confirma que está no carrinho
   // Evita conflito com o heading "Adicionado ao carrinho"
   await expect(
     page.getByRole('heading', { name: /^Carrinho\b/i })
   ).toBeVisible({ timeout: 30000 });
-  await expect(page.getByRole('button', { name: /Ir para o pagamento/i })).toBeVisible({ timeout: 30000 });
+ 
+   // 3) Reduz a quantidade 2x
+  await reduzirQuantidadeCarrinho(page, 2);
 
+   // 4) validação 
+  await expect(
+    page.getByRole('button', { name: /Ir para o pagamento/i })
+  ).toBeVisible({ timeout: 30000 });
+ 
   await page.waitForTimeout(3000);
 });

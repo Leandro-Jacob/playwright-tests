@@ -11,7 +11,10 @@ test('Increase cart quantity', async ({ page }) => {
   await adicionarProdutoHome(page, 1);
   await abrirCarrinhoTopo(page);
 
-  await expect(page.getByRole('heading', { name: /Carrinho/i })).toBeVisible({ timeout: 30000 });
+  // Evita conflito com o heading "Adicionado ao carrinho"
+  await expect(
+    page.getByRole('heading', { name: /^Carrinho\b/i })
+  ).toBeVisible({ timeout: 30000 });
 
   // pega o texto do TOTAL antes (bem estável)
   const totalBox = page.getByText(/^Total$/i).locator('..');
