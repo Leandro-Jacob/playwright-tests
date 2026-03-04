@@ -20,7 +20,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
           cache: "npm"
 
       - name: Instalar dependências
@@ -31,6 +31,10 @@ jobs:
 
       - name: Rodar os testes
         run: npx playwright test
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
       - name: Upload do relatório do Playwright
         if: always()
