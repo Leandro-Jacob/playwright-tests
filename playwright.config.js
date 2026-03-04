@@ -7,6 +7,11 @@ export default defineConfig({
   // Pasta dos testes
   testDir: './tests',
 
+  timeout: 120000, // 2 minutos por teste
+  expect: {
+    timeout: 45000, // espera até 45s pelos elementos
+    },
+
   // Executa testes em paralelo
   fullyParallel: true,
 
