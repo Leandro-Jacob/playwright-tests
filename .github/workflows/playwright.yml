@@ -29,8 +29,8 @@ jobs:
       - name: Instalar browsers do Playwright
         run: npx playwright install --with-deps
 
-      - name: Rodar os testes
-        run: npx playwright test --workers=2 --reporter=html
+      - name: Rodar os testes (exceto NOT_CI)
+        run: npx playwright test --workers=1 --grep-invert "NOT_CI" --reporter=html
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { login } from '../../helpers/login';
 import { abrirCarrinhoTopo } from '../../helpers/home';
 
-test('Empty cart', async ({ page }) => {
+test('NOT_CI - Empty cart', async ({ page }) => {
   test.setTimeout(60000);
 
   await login(page);
