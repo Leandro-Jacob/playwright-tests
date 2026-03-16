@@ -34,7 +34,7 @@ jobs:
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASS: ${{ secrets.USER_PASSWORD }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
       - name: Upload do relatório do Playwright
         if: always()
